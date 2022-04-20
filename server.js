@@ -304,20 +304,25 @@ app.post("/contact", function(req, res) {
     transporter.sendMail(mail, (err, data) => {
       if (err) {
         console.log(err);
-        res.status(500).send("Something went wrong.");
+        res.redirect("failure");
       } else {
-        res.status(200).send("Email successfully sent!")
+        res.redirect("success");
       }
     });
   });
-
-  res.redirect("contact");
 })
 
 app.get("/about", function(req, res) {
   res.render("about");
 })
 
+app.get("/success", function(req, res) {
+  res.render("success");
+})
+
+app.get("/failure", function(req, res) {
+  res.render("failure");
+})
 
 
 
