@@ -171,6 +171,7 @@ const newHighlight = new CronJob('5 56 6 * * *', function() {
 // ----------------------server routes -----------------------//
 
 app.get("/", function(req, res) {
+  console.log(getDate());
   res.render("home");
 });
 
