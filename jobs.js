@@ -2,6 +2,8 @@ const axios = require("axios");
 const mongoose = require("mongoose");
 const https = require("https");
 
+mongoose.connect("mongodb+srv://admin-dillon:dailydose@cluster0.szdh0.mongodb.net/LOTRquotesDB?retryWrites=true&w=majority");
+
 function getRandomInt(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
