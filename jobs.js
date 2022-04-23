@@ -111,7 +111,7 @@ axios("https://v2.jokeapi.dev/joke/Any?blacklistFlags=racist,sexist,explicit&typ
 };
 
 const newRecipe = () => {
-axios.get("https://api.spoonacular.com/recipes/random?apiKey=690ded73385c4b61a0d2217384d64b16&tags=maincourse,appetizer", {
+axios.get("https://api.spoonacular.com/recipes/random?apiKey=690ded73385c4b61a0d2217384d64b16&tags=maincourse", {
     headers: {
       "Content-Type": "application/json"
     }
