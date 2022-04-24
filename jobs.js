@@ -2,7 +2,8 @@ const axios = require("axios");
 const mongoose = require("mongoose");
 const https = require("https");
 
-mongoose.connect("mongodb+srv://admin-dillon:dailydose@cluster0.szdh0.mongodb.net/LOTRquotesDB?retryWrites=true&w=majority");
+
+
 
 function getRandomInt(min, max) {
   min = Math.ceil(min);
@@ -111,13 +112,14 @@ axios("https://v2.jokeapi.dev/joke/Any?blacklistFlags=racist,sexist,explicit&typ
 };
 
 const newRecipe = () => {
-axios.get("https://api.spoonacular.com/recipes/random?apiKey=690ded73385c4b61a0d2217384d64b16&tags=maincourse", {
+axios.get("https://api.spoonacular.com/recipes/random?apiKey=690ded73385c4b61a0d2217384d64b16&number=1&tags=main%20course", {
     headers: {
       "Content-Type": "application/json"
     }
   })
   .then(response => {
     const newData = response.data;
+    console.log(response.data);
     const retrievedRecipe = newData.recipes[0];
     const ingredients = retrievedRecipe.extendedIngredients;
     const sortedIngredients = [];
@@ -163,8 +165,21 @@ const newHighlight = () => {
     });
 };
 
-newPoem();
-newJoke();
-newHighlight();
-newRecipe();
-newSaying();
+mongoose.connect("mongodb+srv://admin-dillon:dailydose@cluster0.szdh0.mongodb.net/LOTRquotesDB?retryWrites=true&w=majority", function(error) {
+  if (error) {
+    console.log(error);
+  } else {
+    console.log("Connected");
+    getDailyData();
+  }
+})
+// .then(console.log("Connected to database."))
+// .then(newPoem());
+
+function getDailyData() {
+  newPoem();
+  newJoke();
+  newHighlight();
+  newRecipe();
+  newSaying();
+}
