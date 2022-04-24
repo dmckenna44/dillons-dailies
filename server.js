@@ -21,7 +21,7 @@ app.set("views", path.join(__dirname + "/views"));
 
 app.use(express.static("public"));
 
-// mongoose.connect("mongodb+srv://admin-dillon:dailydose@cluster0.szdh0.mongodb.net/LOTRquotesDB?retryWrites=true&w=majority");
+mongoose.connect("mongodb+srv://admin-dillon:dailydose@cluster0.szdh0.mongodb.net/LOTRquotesDB?retryWrites=true&w=majority");
 
 // ------------------ mongoose schemas ------------------------ //
 
