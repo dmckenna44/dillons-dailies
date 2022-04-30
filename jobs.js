@@ -176,6 +176,7 @@ const newSaying = () => {
 }
 
 
+
 const newPoem = () => {
   const lineCount = getRandomInt(8, 100);
   axios.get(`https://poetrydb.org/random,linecount/1;${lineCount}`)
@@ -245,9 +246,11 @@ const newHighlight = () => {
       const dataList = newData.response;
       const newList = [];
       dataList.forEach(item => {
-        if (item.competition === "ENGLAND: Premier League" ||
-          item.competiton === "ITALY: Serie A" ||
-          item.competition === "GERMANY: Bundesliga") {
+        if (item.competition === 'ENGLAND: Premier League' ||
+          item.competition === 'ITALY: Serie A' ||
+          item.competition === 'GERMANY: Bundesliga' ||
+          item.competition.includes('CHAMPIONS LEAGUE') &&
+          !item.competition.includes('ASIAN')) {
           newList.push(item);
         }
       })
@@ -258,7 +261,6 @@ const newHighlight = () => {
         date: getDate()
       });
       highlight.save();
-      console.log(highlight);
     });
 };
 
