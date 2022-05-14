@@ -217,6 +217,14 @@ app.post("/contact", function(req, res) {
   });
 })
 
+app.get('/games', function(req, res) {
+  res.render('games');
+})
+
+app.get('/lotr', function(req, res) {
+  res.render('lotr')
+})
+
 app.get("/about", function(req, res) {
   res.render("about");
 })

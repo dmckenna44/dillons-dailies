@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Merriweather&family=Josefin+Sans&family=Macondo&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/lotr-styles.css" />
+    <title>LOTR Trivia</title>
+  </head>
+  <body>
+    <div class="page-top">
+      <!-- Add modal to explain the game -->
+      <h2 class="main-title font-three"><p>Lord of the Rings Movie Quote Trivia</p></h2>
+      <img src="images/images/decorations/gandalfgrey.png" alt="" class="dec gandalf">
+      <img src="images/images/decorations/merry.png" alt="" class="dec merry">
+      <img src="images/images/decorations/gimli.png" alt="" class="dec gimli">
+      <img src="images/images/decorations/legolas.png" alt="" class="dec legolas">
+      <img src="images/images/decorations/aragorn.png" alt="" class="dec aragorn">
+      <img src="images/images/decorations/pippin.png" alt="" class="dec pippin">
+      <img src="images/images/decorations/boromir.png" alt="" class="dec boromir">
+    </div>
+    <div class="page-body pt-2 mx-auto">
+      <div class="quote mx-auto">
+        <p class="quoteBody font-two p-2"></p>
+      </div>
+
+      <div class="row py-3 game">
+        <div class="chars col mx-4">
+          <h4 class="font-three">Who Said It?</h4>
+          <form action="" class="charChoices font-two">
+            <input type="radio" id="choice1" name="charList" />
+            <label for="choice1" class="charChoice"></label> <br />
+            <input type="radio" id="choice2" name="charList" />
+            <label for="choice2" class="charChoice"></label> <br />
+            <input type="radio" id="choice3" name="charList" />
+            <label for="choice3" class="charChoice"></label> <br />
+            <input type="radio" id="choice4" name="charList" />
+            <label for="choice4" class="charChoice"></label> <br />
+          </form>
+        </div>
+        <br />
+        <div class="col">
+          <h4 class="font-three">In Which Movie?</h4>
+          <form action="" class="movieChoices font-two">
+            <input type="radio" name="movieList" id="fellowship" />
+            <label for="fellowship" class="movieChoice"
+              >The Fellowship of the Ring</label
+            >
+            <br />
+            <input type="radio" name="movieList" id="tower" />
+            <label for="tower" class="movieChoice">The Two Towers </label>
+            <br />
+            <input type="radio" name="movieList" id="king" />
+            <label for="king" class="movieChoice">The Return of the King</label>
+          </form>
+        </div>
+        <div class="col">
+          <button class="submitGuess btn-success font-three">Guess</button>
+          <button class="nextQuestion btn-primary font-three" hidden>
+            Next Quote
+          </button>
+          <div class="row results">
+            <div class="col">
+              <p class="font-one">Right: <span class="score">0</span>/21</p>
+              <p class="font-one">Wrong: <span class="wrong">0</span>/9</p>
+            </div>
+            <h3 class="result font-two col"></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="game-window">
+      <canvas id="layer1" width="850" height="300"></canvas>
+      <canvas id="layer2" width="850" height="300"></canvas>
+    </div>
+    <br>
+    <div class="welcome">
+      <div>
+        <p>The fellowship has been sundered, and now it is up to you to help Frodo and Sam get the one Ring to Mordor 
+          where it can be destroyed in the fires of Mount Doom. Only your knowledge of Peter Jackson's award-winning film
+          trilogy can save Middle-Earth! Make the right choices to confound the Nazgul and keep Frodo and Sam 
+          safe long enough to reach Mount Doom!
+        </p>
+        
+        <button id="startGame" class="btn-success">Start Game</button>
+        
+        <p>Note: These quotes come from the extended cuts, and include some in Elvish and the language of Mordor</p>
+      </div>
+    </div>
+    <div class="overlay"></div> 
+    <div class="gameover party hidden">
+      <h3 class="win-msg">You Did It!</h3>
+      <h5 class="font-two win-msg-sub">The ring has been destroyed and Middle Earth is safe...</h5>
+      <img src="images/images/party.gif" alt="" class="gif">
+    </div>
+    <div class="gameover defeat hidden">
+      <h3 class="win-msg">Frodo has fallen!</h3>
+      <h5 class="font-two win-msg-sub">The Nazgul have overcome he and Sam, and Middle Earth is doomed...</h5>
+      <img src="images/images/defeat.gif" alt="" class="gif">
+    </div>
+    <br />
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/data.js"></script>
+  </body>
+</html>
+
+<!-- TODO 
+- Add modal to explain the game at the start
+- ADD STYLES!!
+- Find graphics for Frodo, Sam, and background
+- Figure out how to get quotes from database
+- Create array of coordinates for each level image for sprites to follow
+-->
