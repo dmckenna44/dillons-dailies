@@ -1,240 +1,247 @@
 /* ------------------- ELEMENTS ------------------- */
 
 body {
-    background-color: #222;
-    background-size: cover;
-    background-attachment: fixed;
-    /* background: linear-gradient(white, black); */
-  }
-  
-  /* --------------------- CLASSES -------------------- */
-  
-  .main-title {
-    text-align: center;
-    /* text-shadow: 0 0 3px #d3b032; */
-    background: -webkit-linear-gradient(#F8CB2E, #997c15);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  
-  .game {
-      margin-left: 2rem;
-  }
-  
-  .result {
-    white-space: pre-line;
-  }
-  
-  .welcome {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 70%;
-      transform: translate(-50%, -50%);
-      
-      background: linear-gradient( #F8CB2E, #927714);
-      font-family: 'MiddleEarth Regular';
-      font-weight: 600;
-      padding: 6rem;
-      box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
-      border-radius: 10px;
-      z-index: 10;
-  }
-  
-  .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(3px);
-      z-index: 5;
-  }
-  
-  .gameover {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    width: 50%;
-    height: 75%;
-    transform: translate(-50%, -50%);
-    
-    text-align: center;
-    z-index: 5
-  }
-  
-  .win-msg {
-    font-family: 'MiddleEarth Regular';
-    font-size: 60px;
-    background: -webkit-linear-gradient(#F8CB2E, #997c15);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  
-  .win-msg-sub {
-    background: -webkit-linear-gradient(#F8CB2E, #997c15);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  
-  .gif {
-    width: 100%;
-    height: 100%;
-    border-radius: 30px;
-  }
-  
-  
-  
-  .hidden {
-      display: none;
-  }
-  
-  .pixel {
-    font-family: "Press Start 2P", cursive;
-    /* font-family: 'Macondo', cursive; */
-  }
-  
-  .page-top {
-    /* background-color: #222; */
-    color: #f0c929;
-    margin: 2rem 0 2rem;
-  }
-  
-  .page-body {
-    width: 75%;
-    margin: 0 1rem 0;
-    text-align: left;
-    background-color: #9fc088;
-    border-radius: 10px;
-    box-shadow: 0 0 15px #F8CB2E;
-  }
-  
-  .quoteBody {
-    font-style: italic;
-    font-weight: 600;
-    margin: 20px;
-    border: solid;
-    border-radius: 10px;
-    background-color: white;
-  }
-  
-  #startGame {
-    margin: 1rem 0 2rem;
-  }
-  
-  .submitGuess {
-    width: 7rem;
-    margin: 0 0 1rem;
-  }
-  
-  .nextQuestion {
-    width: 12rem;
-  }
-  
-  .quote {
-    width: 75%;
-    text-align: center;
-    /* border: solid;
+  background-color: #222;
+  background-size: cover;
+  background-attachment: fixed;
+  /* background: linear-gradient(white, black); */
+}
+
+/* --------------------- CLASSES -------------------- */
+
+.main-title {
+  text-align: center;
+  /* text-shadow: 0 0 3px #d3b032; */
+  background: -webkit-linear-gradient(#f8cb2e, #997c15);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.game {
+  margin-left: 2rem;
+}
+
+.result {
+  white-space: pre-line;
+}
+
+.welcome {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 70%;
+  transform: translate(-50%, -50%);
+
+  background: linear-gradient(#f8cb2e, #927714);
+  font-family: "middleearthmedium";
+  font-weight: 600;
+  padding: 6rem;
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  z-index: 10;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 5;
+}
+
+.gameover {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  width: 50%;
+  height: 75%;
+  transform: translate(-50%, -50%);
+
+  text-align: center;
+  z-index: 5;
+}
+
+.win-msg {
+  font-family: "middleearthmedium";
+  font-size: 60px;
+  background: -webkit-linear-gradient(#f8cb2e, #997c15);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.win-msg-sub {
+  background: -webkit-linear-gradient(#f8cb2e, #997c15);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gif {
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+}
+
+.hidden {
+  display: none;
+}
+
+.page-top {
+  /* background-color: #222; */
+  color: #f0c929;
+  margin: 2rem 0 2rem;
+}
+
+.page-body {
+  width: 75%;
+  margin: 0 1rem 0;
+  text-align: left;
+  background-color: #9fc088;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #f8cb2e;
+}
+
+.quoteBody {
+  font-style: italic;
+  font-weight: 600;
+  margin: 20px;
+  border: solid;
+  border-radius: 10px;
+  background-color: white;
+}
+
+#startGame {
+  margin: 1rem 0 2rem;
+}
+
+.submitGuess {
+  width: 7rem;
+  margin: 0 0 1rem;
+}
+
+.nextQuestion {
+  width: 12rem;
+}
+
+.quote {
+  width: 75%;
+  text-align: center;
+  /* border: solid;
       border-radius: 10px;  */
-  }
-  
-  input[type="radio"] {
-    width: 14px;
-    height: 14px;
-  }
-  
-  /* ------------------ CANVAS -------------------- */
-  
-  .game-window {
-    margin: 2rem;
-    /* padding-bottom: 1rem; */
-    height: 30%;
-    text-align: center;
-  }
-  
-  #layer1 {
-    box-shadow: 0 0 10px #F8CB2E;
-    position: absolute;  
-    left: 22%;
-    /* background-color: brown; */
-    border-radius: 10px;
-    z-index: 1;
-  }
-  
-  #layer2 {
-      position: absolute;
-      left: 22%;
-      /* background-color: cyan; */
-      border-radius: 10px;
-      z-index: 2;
-  }
-  
-  /* -------------------- IMAGES ------------------ */
-  
-  .dec {
-    width: 100px;
-    position: absolute;
-  }
-  
-  .gimli {
-    right: 3%;
-    top: 20%;
-  }
-  
-  .gandalf {
-    top: 7%;
-    left: 1%
-  }
-  .aragorn {
-    height: 90px;
-    width: 110px;
-    top: 60%;
-    right: 10%;
-  }
-  
-  .legolas {
-    top: 79%;
-    left: 2%;
-  }
-  
-  .pippin {
-    top: 80%;
-    right: 5%;
-  }
-  
-  .merry {
-    top: 40%;
-    left: 3%
-  }
-  
-  .boromir {
-    top: 70%;
-    left: 8%;
-  }
-  
-  /* -------------- Fonts -------------- */
-  
-  .font-one {
-    font-family: "Macondo", cursive;
-    font-weight: 600;
-  }
-  
-  .font-two {
-    font-family: "Josefin Sans", sans-serif;
-    
-  }
-  
-  .font-three {
-    font-family: "Ringbearer Medium";
-  }
-  
-  /* Party Business Regular
+}
+
+input[type="radio"] {
+  width: 14px;
+  height: 14px;
+}
+
+/* ------------------ CANVAS -------------------- */
+
+.game-window {
+  margin: 2rem;
+  /* padding-bottom: 1rem; */
+  height: 30%;
+  text-align: center;
+}
+
+#layer1 {
+  box-shadow: 0 0 10px #f8cb2e;
+  position: absolute;
+  left: 22%;
+  /* background-color: brown; */
+  border-radius: 10px;
+  z-index: 1;
+}
+
+#layer2 {
+  position: absolute;
+  left: 22%;
+  /* background-color: cyan; */
+  border-radius: 10px;
+  z-index: 2;
+}
+
+/* -------------------- IMAGES ------------------ */
+
+.dec {
+  width: 100px;
+  position: absolute;
+}
+
+.gimli {
+  right: 3%;
+  top: 20%;
+}
+
+.gandalf {
+  top: 7%;
+  left: 1%;
+}
+.aragorn {
+  height: 90px;
+  width: 110px;
+  top: 60%;
+  right: 10%;
+}
+
+.legolas {
+  top: 79%;
+  left: 2%;
+}
+
+.pippin {
+  top: 80%;
+  right: 5%;
+}
+
+.merry {
+  top: 40%;
+  left: 3%;
+}
+
+.boromir {
+  top: 70%;
+  left: 8%;
+}
+
+/* -------------- Fonts -------------- */
+
+.font-one {
+  font-family: "Macondo", cursive;
+  font-weight: 600;
+}
+
+.font-two {
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.font-three {
+  font-family: "ringbearermedium";
+}
+
+@font-face {
+  font-family: "middleearthmedium";
+  src: url("http://dillonsdailies.herokuapp.com/public/css/fonts/middleearth-ao6m-webfont.woff2") format("woff2"),
+    url("http://dillonsdailies.herokuapp.com/public/css/fonts/middleearth-ao6m-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "ringbearermedium";
+  src: url("http://dillonsdailies.herokuapp.com/public/css/fonts/ringbearermedium-51mgz-webfont.woff2") format("woff2"),
+    url("http://dillonsdailies.herokuapp.com/public/css/fonts/ringbearermedium-51mgz-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Party Business Regular
   The Shire Regular
   Hobbiton Brushhand Hobbiton brush Regular
   MiddleEarth Regular
   Ringbearer Medium*/
-  
