@@ -19,6 +19,7 @@
     "mongodb": "^4.5.0",
     "mongoose": "^6.3.0",
     "multiparty": "^4.2.3",
-    "nodemailer": "^6.7.3"
+    "nodemailer": "^6.7.3",
+    "nodemon": "^2.0.16"
   }
 }

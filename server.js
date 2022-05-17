@@ -8,11 +8,15 @@ const path = require("path");
 const nodemailer = require("nodemailer");
 const multiparty = require("multiparty");
 
-
-const getDate = function() {
-  const today = new Date()
-  const options = {year:'numeric', month:'numeric', day:'numeric', timeZone: 'UTC'};
-  return today.toLocaleDateString('en-US', options);
+const getDate = function () {
+  const today = new Date();
+  const options = {
+    year: "numeric",
+    month: "numeric",
+    day: "numeric",
+    timeZone: "UTC",
+  };
+  return today.toLocaleDateString("en-US", options);
 };
 
 // ---------------- server & database set-up ------------------------------ //
@@ -20,17 +24,18 @@ const getDate = function() {
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname + "/views"));
 
-
 app.use(express.static("public"));
 
-mongoose.connect("mongodb+srv://admin-dillon:dailydose@cluster0.szdh0.mongodb.net/LOTRquotesDB?retryWrites=true&w=majority");
+mongoose.connect(
+  "mongodb+srv://admin-dillon:dailydose@cluster0.szdh0.mongodb.net/LOTRquotesDB?retryWrites=true&w=majority"
+);
 
 // ------------------ mongoose schemas ------------------------ //
 
 const sayingSchema = new mongoose.Schema({
   name: String,
   quote: String,
-  date: String
+  date: String,
 });
 const Saying = mongoose.model("saying", sayingSchema);
 
@@ -38,15 +43,15 @@ const poemSchema = new mongoose.Schema({
   author: String,
   title: String,
   content: Array,
-  date: String
-})
+  date: String,
+});
 
 const Poem = mongoose.model("poem", poemSchema);
 
 const jokeSchema = new mongoose.Schema({
   setup: String,
   punchline: String,
-  date: String
+  date: String,
 });
 
 const Joke = mongoose.model("joke", jokeSchema);
@@ -59,81 +64,84 @@ const recipeSchema = new mongoose.Schema({
   instructions: String,
   source: String,
   imageURL: String,
-  date: String
+  date: String,
 });
 
 const Recipe = mongoose.model("recipe", recipeSchema);
 
 const highlightSchema = new mongoose.Schema({
   video: String,
-  date: String
+  date: String,
 });
 
 const Highlight = mongoose.model("highlight", highlightSchema);
 
-
-
 // ----------------------server routes -----------------------//
 
-app.get("/", function(req, res) {
+app.get("/", function (req, res) {
   res.render("home");
 });
 
-
-
-app.get("/quote", async function(req, res) {
-  Saying.find({
-    date: getDate()
-  }, (err, quote) => {
-    if (!err) {
-      res.render("quote", {
-        dailyTitle: "Notable Quotable",
-        dailySubTitle: "A lil wisdom fo' yo ass.",
-        content: quote[0].quote,
-        author: quote[0].name
-      });
+app.get("/quote", async function (req, res) {
+  Saying.find(
+    {
+      date: getDate(),
+    },
+    (err, quote) => {
+      if (!err) {
+        res.render("quote", {
+          dailyTitle: "Notable Quotable",
+          dailySubTitle: "A lil wisdom fo' yo ass.",
+          content: quote[0].quote,
+          author: quote[0].name,
+        });
+      }
     }
-  })
+  );
 });
 
-
-app.get("/poem", function(req, res) {
-  Poem.find({
-    date: getDate()
-  }, (err, poem) => {
-    if (err) {
-      console.log(err);
-    } else {
-      res.render("poem", {
-        dailyTitle: "Daily Poem",
-        dailySubTitle: "A poem a day keeps the apples away.",
-        title: poem[0].title,
-        author: poem[0].author,
-        content: poem[0].content
-      });
+app.get("/poem", function (req, res) {
+  Poem.find(
+    {
+      date: getDate(),
+    },
+    (err, poem) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.render("poem", {
+          dailyTitle: "Daily Poem",
+          dailySubTitle: "A poem a day keeps the apples away.",
+          title: poem[0].title,
+          author: poem[0].author,
+          content: poem[0].content,
+        });
+      }
     }
-  })
+  );
 });
 
-app.get("/joke", function(req, res) {
-  Joke.find({
-    date: getDate()
-  }, (err, joke) => {
-    if (!err) {
-      res.render("joke", {
-        dailyTitle: "Your daily joke",
-        dailySubTitle: "Laugh, damn you!",
-        setup: joke[0].setup,
-        punchline: joke[0].punchline
-      })
+app.get("/joke", function (req, res) {
+  Joke.find(
+    {
+      date: getDate(),
+    },
+    (err, joke) => {
+      if (!err) {
+        res.render("joke", {
+          dailyTitle: "Your daily joke",
+          dailySubTitle: "Laugh, damn you!",
+          setup: joke[0].setup,
+          punchline: joke[0].punchline,
+        });
+      }
     }
-  })
-})
+  );
+});
 
-
-app.get("/recipe", function(req, res) {
-  Recipe.find({date: getDate()}, (err, recipe) => {
-    const newRecipe = recipe[0]
+app.get("/recipe", function (req, res) {
+  Recipe.find({ date: getDate() }, (err, recipe) => {
+    const newRecipe = recipe[0];
     res.render("recipe", {
       dailyTitle: "Your Daily Recipe",
       dailySubTitle: "Get off your lazy ass and cook!",
@@ -143,51 +151,52 @@ app.get("/recipe", function(req, res) {
       ingredients: newRecipe.ingredients,
       instructions: newRecipe.instructions,
       source: newRecipe.source,
-      imageURL: newRecipe.imageURL
+      imageURL: newRecipe.imageURL,
     });
-  })
-    });
+  });
+});
 
-app.get("/fact", function(req, res) {
-  axios.get("https://uselessfacts.jsph.pl/today.json?language=en")
-    .then(response => {
+app.get("/fact", function (req, res) {
+  axios
+    .get("https://uselessfacts.jsph.pl/today.json?language=en")
+    .then((response) => {
       const newFact = response.data.text;
       res.render("fact", {
         dailyTitle: "Your Daily Random Fact",
         dailySubTitle: "For the pursuit of trivia.",
-        fact: newFact
+        fact: newFact,
       });
     });
 });
 
-app.get("/soccer", function(req, res) {
-  Highlight.find({date: getDate()}, (err, video) => {
+app.get("/soccer", function (req, res) {
+  Highlight.find({ date: getDate() }, (err, video) => {
     if (!err) {
       res.render("soccer", {
         dailyTitle: "Your Daily Soccer Match",
-        dailySubTitle: "In a far away place, not too long ago, this happened...",
-        video: video[0].video
+        dailySubTitle:
+          "In a far away place, not too long ago, this happened...",
+        video: video[0].video,
       });
     }
-  })
-    });
+  });
+});
 
-
-app.get("/contact", function(req, res) {
+app.get("/contact", function (req, res) {
   res.render("contact");
-})
+});
 
-app.post("/contact", function(req, res) {
+app.post("/contact", function (req, res) {
   const transporter = nodemailer.createTransport({
     host: "smtp-mail.outlook.com",
     port: 587,
     secure: false,
     auth: {
       user: "dillonsdailies@outlook.com",
-      pass: "Cheese06!"
-    }
+      pass: "Cheese06!",
+    },
   });
-  transporter.verify(function(error, success) {
+  transporter.verify(function (error, success) {
     if (error) {
       console.log(error);
     } else {
@@ -196,7 +205,7 @@ app.post("/contact", function(req, res) {
   });
   let form = new multiparty.Form();
   let data = {};
-  form.parse(req, function(err, fields) {
+  form.parse(req, function (err, fields) {
     Object.keys(fields).forEach((property) => {
       data[property] = fields[property].toString();
     });
@@ -204,7 +213,7 @@ app.post("/contact", function(req, res) {
       from: "dillonsdailies@outlook.com",
       to: "dmckenna05@gmail.com",
       subject: data.subject,
-      text: `From: \n${data.name}\n ${data.email} \n\nMessage: \n${data.message}`
+      text: `From: \n${data.name}\n ${data.email} \n\nMessage: \n${data.message}`,
     };
     transporter.sendMail(mail, (err, data) => {
       if (err) {
@@ -215,36 +224,37 @@ app.post("/contact", function(req, res) {
       }
     });
   });
-})
+});
 
-app.get('/games', function(req, res) {
-  res.render('games');
-})
+app.get("/extras", function (req, res) {
+  res.render("extras");
+});
 
-app.get('/lotr', function(req, res) {
-  res.render('lotr')
-})
+app.get("/forge", function (req, res) {
+  res.render("forge");
+});
 
-app.get("/about", function(req, res) {
+app.get("/lotr", function (req, res) {
+  res.render("lotr");
+});
+
+app.get("/about", function (req, res) {
   res.render("about");
-})
+});
 
-app.get("/success", function(req, res) {
+app.get("/success", function (req, res) {
   res.render("success");
-})
+});
 
-app.get("/failure", function(req, res) {
+app.get("/failure", function (req, res) {
   res.render("failure");
-})
-
-
-
+});
 
 let port = process.env.PORT;
 if (port == null || port == "") {
   port = 3000;
 }
 
-app.listen(port, function() {
+app.listen(port, function () {
   console.log("Server has started successfully.");
-})
+});

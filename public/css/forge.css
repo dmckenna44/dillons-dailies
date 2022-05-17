@@ -1,0 +1,135 @@
+body {
+    background-size: cover;
+    /* background: linear-gradient(170deg, blue, 10%, red);*/
+    background: linear-gradient(
+      rgb(226, 204, 9) 0%,
+      rgb(219, 87, 11) 40%,
+      rgb(219, 87, 11) 80%,
+      rgb(226, 204, 9) 100%
+    );
+  }
+  
+  select {
+    margin: 1rem 0 2rem;
+  }
+  
+  @keyframes reveal {
+    0% {
+      opacity: 0;
+    }
+    99.9% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  .topDescription {
+    font-family: "Josefin Sans";
+    font-weight: 600;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  .page-title {
+    font-family: "Macondo";
+    text-align: center;
+    margin: 3rem;
+  }
+  
+  .title {
+    background: -webkit-linear-gradient(rgb(7, 7, 7), #a10c0c, rgb(7, 7, 7));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  
+    /* text-shadow: 0 0 3px rgb(158, 10, 10); */
+  
+    animation-name: fadeIn;
+    animation-duration: 4.5s;
+    animation-fill-mode: forwards;
+    font-size: 4rem;
+  }
+  
+  .submit {
+    font-family: "Josefin Sans";
+    font-size: 2rem;
+    width: 10rem;
+    height: 4rem;
+    border-width: 0;
+    border-radius: 5px;
+    color: black;
+    box-shadow: 0 0 15px black;
+    background-color: #a10c0c;
+  }
+  
+  .submit:hover {
+    box-shadow: none;
+    background-color: #222;
+    box-shadow: 0 0 15px rgb(226, 204, 9);
+    color: rgb(226, 204, 9);
+  }
+  
+  .page-body {
+    font-family: "Josefin Sans";
+    width: 75%;
+    text-align: center;
+  }
+  
+  .page-bottom {
+    text-align: center;
+    margin: 0 0 4rem;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  .fade-in {
+    animation-name: fadeIn;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+  }
+  
+  .results {
+    width: 70%;
+    font-family: "Josefin Sans";
+    border-width: 5px;
+    border-radius: 10px;
+    border-color: black;
+    background: linear-gradient(white 0%, cyan 50%, white, 0%);
+    margin: 1rem 0 3rem 0;
+  }
+  
+  #weaponDesc {
+    font-family: "Courier New", Courier, monospace;
+    font-weight: 600;
+  }
+  
+  .resultName {
+    font-weight: 600;
+  }
+  
+  .label {
+    font-weight: 600;
+  }
+  
+  .weaponImg {
+    width: 25%;
+    height: 20%;
+  }
+  
+  .titleImg {
+    width: 25%;
+    margin: 2rem 0 2rem 0;
+    animation: fadeIn 8s forwards;
+  }
+  
