@@ -35,12 +35,19 @@ body {
   }
   
   .page-title {
-    font-family: "Macondo";
     text-align: center;
     margin: 3rem;
   }
+
+  .disclaimer {
+    margin: 0 auto;
+    width: 50%;
+    text-align: center;
+    font-family: 'Josefin Sans';
+  } 
   
   .title {
+    font-family: "Macondo";
     background: -webkit-linear-gradient(rgb(7, 7, 7), #a10c0c, rgb(7, 7, 7));
     background-clip: text;
     -webkit-background-clip: text;
