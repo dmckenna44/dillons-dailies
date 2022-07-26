@@ -5408,7 +5408,7 @@ function draw2(x, y) {
 
 const usedQuotes = [];
 let newQuote;
-let score = 0;
+let score = 0; 
 let wrongAnswers = 0;
 let layer2;
 let ctx2;
