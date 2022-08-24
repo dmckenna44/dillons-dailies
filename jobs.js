@@ -255,12 +255,12 @@ const newHighlight = () => {
       const newList = [];
       dataList.forEach(item => {
         if (
-          // item.competition === 'ENGLAND: Premier League' ||
-          // item.competition === 'ITALY: Serie A' ||
-          // item.competition === 'GERMANY: Bundesliga' ||
-          // (item.competition.includes('CHAMPIONS LEAGUE') &&
-          //   !item.competition.includes('ASIAN'))
-          item.competition === 'INTERNATIONAL: Club Friendlies'
+          item.competition === 'ENGLAND: Premier League' ||
+          item.competition === 'ITALY: Serie A' ||
+          item.competition === 'GERMANY: Bundesliga' ||
+          (item.competition.includes('CHAMPIONS LEAGUE') &&
+            !item.competition.includes('ASIAN'))
+          // item.competition === 'INTERNATIONAL: Club Friendlies'
         ) {
           newList.push(item);
         }
