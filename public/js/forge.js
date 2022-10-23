@@ -587,7 +587,7 @@ const allWeapons = [
     twoHanded: true,
   },
   {
-    name: 'Composite Bow',
+    name: 'Recurve Bow',
     rarity: 'common',
     type: 'ranged',
     damage: '1d10',
@@ -1725,15 +1725,13 @@ function createWeapon(...args) {
       secondary = secEnchObjs[d20()];
     }
   }
-  final = `${bonus ? bonus : ''} ${baseWeapon.name} ${
-    primary ? '- ' + primary.name : ''
-  } ${secondary ? '- ' + secondary.name : ''}`;
+  final = `${bonus ? bonus : ''} ${secondary ? ' ' + secondary.name : ''} ${baseWeapon.name} ${primary ? ' ' + primary.name : ''}`;
 
   bonusResult.innerHTML = bonus
     ? `${bonus} bonus to attack and damage rolls.`
     : '';
 
-  firstEnchantName.innerHTML = primary ? `${primary.name}: ` : '';
+  firstEnchantName.innerHTML = primary ? `${primary.name.slice(3)}: ` : '';
   firstResultDescription.innerHTML = primary ? `${primary.desc}: ` : '';
   secondEnchantName.innerHTML = secondary ? `${secondary.name}: ` : '';
   secondResultDescription.innerHTML = secondary ? `${secondary.desc}: ` : '';

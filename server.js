@@ -1,12 +1,13 @@
 const express = require("express");
-const https = require("https");
 const axios = require("axios");
-const app = express();
-const CronJob = require("cron").CronJob;
 const mongoose = require("mongoose");
 const path = require("path");
 const nodemailer = require("nodemailer");
 const multiparty = require("multiparty");
+
+const app = express();
+
+// ------------------------ Helper Functions ----------------------------- //
 
 const getDate = function () {
   const today = new Date();
