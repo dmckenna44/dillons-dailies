@@ -1697,8 +1697,8 @@ function createWeapon(...args) {
   } else if (bonusDisplay.value === 'none') {
     bonus = '';
   } else {
-    if (bonusRoll <= 3) bonus = false;
-    else if (bonusRoll >= 4 && bonusRoll <= 11) bonus = '+1';
+    if (bonusRoll <= 5) bonus = false;
+    else if (bonusRoll >= 6 && bonusRoll <= 11) bonus = '+1';
     else if (bonusRoll >= 12 && bonusRoll <= 17) bonus = '+2';
     else if (bonusRoll >= 18 && bonusRoll <= 19) bonus = '+3';
     else {
