@@ -92,7 +92,7 @@ app.get("/quote", async function (req, res) {
       if (!err) {
         res.render("quote", {
           dailyTitle: "Notable Quotable",
-          dailySubTitle: "A lil wisdom fo' yo ass.",
+          dailySubTitle: "A little wisdom never hurts.",
           content: quote[0].quote,
           author: quote[0].name,
         });
@@ -131,7 +131,7 @@ app.get("/joke", function (req, res) {
       if (!err) {
         res.render("joke", {
           dailyTitle: "Your daily joke",
-          dailySubTitle: "Laugh, damn you!",
+          dailySubTitle: "Laugh, damn you, laugh!",
           setup: joke[0].setup,
           punchline: joke[0].punchline,
         });
