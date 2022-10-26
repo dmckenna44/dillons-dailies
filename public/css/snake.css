@@ -1,0 +1,67 @@
+#head {
+    background: black;
+    height: 50px;
+    width: 50px;
+    background-color: green;
+    position: absolute;
+  }
+  
+  .segment {
+    background: black; 
+    height: 50px;
+    width: 50px;
+    background-color: green;
+    position: absolute;
+  }
+  
+  #board {
+    height: 700px;
+    width: 700px;
+    border: 1px black solid;
+    position: relative;
+  }
+  
+  #apple {
+    height: 50px;
+    width: 50px;
+    position: absolute;
+  }
+  
+  .welcome {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 70%;
+    transform: translate(-50%, -50%);
+  
+    background: linear-gradient(#f8cb2e, #927714);
+    font-family: "middleearthmedium";
+    font-weight: 600;
+    padding: 6rem;
+    box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    z-index: 10;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
+    z-index: 5;
+  }
+  
+  .gameover {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    width: 50%;
+    height: 75%;
+    transform: translate(-50%, -50%);
+  
+    text-align: center;
+    z-index: 5;
+  }

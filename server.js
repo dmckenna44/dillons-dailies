@@ -4,8 +4,10 @@ const mongoose = require("mongoose");
 const path = require("path");
 const nodemailer = require("nodemailer");
 const multiparty = require("multiparty");
-
+require('dotenv').config();
+console.log(process.env);
 const app = express();
+
 
 // ------------------------ Helper Functions ----------------------------- //
 
@@ -27,9 +29,7 @@ app.set("views", path.join(__dirname + "/views"));
 
 app.use(express.static("public"));
 
-mongoose.connect(
-  "mongodb+srv://admin-dillon:dailydose@cluster0.szdh0.mongodb.net/LOTRquotesDB?retryWrites=true&w=majority"
-);
+mongoose.connect(process.env.DB_CONN);
 
 // ------------------ mongoose schemas ------------------------ //
 
@@ -104,7 +104,7 @@ app.get("/quote", async function (req, res) {
 app.get("/poem", function (req, res) {
   Poem.find(
     {
-      date: getDate(),
+      date: "10/22/2022",
     },
     (err, poem) => {
       if (err) {
@@ -193,8 +193,8 @@ app.post("/contact", function (req, res) {
     port: 587,
     secure: false,
     auth: {
-      user: "dillonsdailies@outlook.com",
-      pass: "Cheese06!",
+      user: process.env.CONTACT_EMAIL,
+      pass: process.env.CONTA,
     },
   });
   transporter.verify(function (error, success) {
