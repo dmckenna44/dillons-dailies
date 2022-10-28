@@ -5,7 +5,6 @@ const path = require("path");
 const nodemailer = require("nodemailer");
 const multiparty = require("multiparty");
 require('dotenv').config();
-console.log(process.env);
 const app = express();
 
 
@@ -17,10 +16,11 @@ const getDate = function () {
     year: "numeric",
     month: "numeric",
     day: "numeric",
-    timeZone: "UTC",
+    timeZone: "America/Los_Angeles",
   };
   return today.toLocaleDateString("en-US", options);
 };
+console.log(getDate());
 
 // ---------------- server & database set-up ------------------------------ //
 

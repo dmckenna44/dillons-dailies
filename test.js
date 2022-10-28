@@ -93,37 +93,52 @@
 //   if (dice === 6) console.log('Loop is about to end...');
 // }
 
-const newRecipe = () => {
-    axios
-      .get(
-        'https://api.spoonacular.com/recipes/random?apiKey=690ded73385c4b61a0d2217384d64b16&number=1&tags=main%20course',
-        {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }
-      )
-      .then(response => {
-        const newData = response.data;
-        const retrievedRecipe = newData.recipes[0];
-        const ingredients = retrievedRecipe.extendedIngredients;
-        const sortedIngredients = [];
-        ingredients.forEach(ingredient => {
-          sortedIngredients.push(ingredient.original);
-        });
-        const recipe = new Recipe({
-          dishName: retrievedRecipe.title,
-          time: retrievedRecipe.readyInMinutes,
-          servings: retrievedRecipe.servings,
-          ingredients: sortedIngredients,
-          instructions: retrievedRecipe.instructions,
-          source: retrievedRecipe.sourceUrl,
-          imageURL: retrievedRecipe.image,
-          date: getDate(),
-        });
-        recipe.save();
-        console.log('New recipe added');
-      });
-  };
+// const newRecipe = () => {
+//     axios
+//       .get(
+//         'https://api.spoonacular.com/recipes/random?apiKey=690ded73385c4b61a0d2217384d64b16&number=1&tags=main%20course',
+//         {
+//           headers: {
+//             'Content-Type': 'application/json',
+//           },
+//         }
+//       )
+//       .then(response => {
+//         const newData = response.data;
+//         const retrievedRecipe = newData.recipes[0];
+//         const ingredients = retrievedRecipe.extendedIngredients;
+//         const sortedIngredients = [];
+//         ingredients.forEach(ingredient => {
+//           sortedIngredients.push(ingredient.original);
+//         });
+//         const recipe = new Recipe({
+//           dishName: retrievedRecipe.title,
+//           time: retrievedRecipe.readyInMinutes,
+//           servings: retrievedRecipe.servings,
+//           ingredients: sortedIngredients,
+//           instructions: retrievedRecipe.instructions,
+//           source: retrievedRecipe.sourceUrl,
+//           imageURL: retrievedRecipe.image,
+//           date: getDate(),
+//         });
+//         recipe.save();
+//         console.log('New recipe added');
+//       });
+//   };
 
-  newRecipe();
+//   newRecipe();
+
+
+const getDate = function () {
+  const today = new Date();
+  const options = {
+    year: "numeric",
+    month: "numeric",
+    day: "numeric",
+    time: "numeric",
+    timeZone: "UTC",
+  };
+  return today.toLocaleDateString("en-US", options);
+};
+console.log(getDate());
+console.log(new Date());

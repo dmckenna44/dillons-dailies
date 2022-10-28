@@ -18,7 +18,7 @@ const getDate = function () {
     year: 'numeric',
     month: 'numeric',
     day: 'numeric',
-    timeZone: 'UTC',
+    timeZone: 'America/Los_Angeles',
   };
   return today.toLocaleDateString('en-US', options);
 };
