@@ -1,3 +1,6 @@
+
+// ---------------------- Modules & packages ------------------------- //
+
 const express = require("express");
 const axios = require("axios");
 const mongoose = require("mongoose");
@@ -29,7 +32,17 @@ app.set("views", path.join(__dirname + "/views"));
 
 app.use(express.static("public"));
 
-mongoose.connect(process.env.DB_CONN);
+mongoose.connect(
+  process.env.DB_CONN,
+  function (error) {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('Connected to DB');
+      // getDailyData();
+    }
+  }
+);
 
 // ------------------ mongoose schemas ------------------------ //
 

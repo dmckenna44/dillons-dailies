@@ -3,6 +3,7 @@
 const axios = require('axios');
 const mongoose = require('mongoose');
 const https = require('https');
+require('dotenv').config();
 
 // --------------------- Helper Functions ---------------------- //
 
@@ -190,7 +191,7 @@ const newHighlight = () => {
 
 
 function getDailyData() {
-  newPoem();
+  // newPoem();
   newRecipe();
   newSaying();
   newJoke();
@@ -200,7 +201,7 @@ function getDailyData() {
 // --------------------- Add all entries to database ----------------------- //
 
 mongoose.connect(
-  'mongodb+srv://admin-dillon:dailydose@cluster0.szdh0.mongodb.net/LOTRquotesDB?retryWrites=true&w=majority',
+  process.env.DB_CONN,
   function (error) {
     if (error) {
       console.log(error);
