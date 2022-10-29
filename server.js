@@ -23,7 +23,7 @@ const getDate = function () {
   };
   return today.toLocaleDateString("en-US", options);
 };
-console.log(getDate());
+// console.log(getDate());
 
 // ---------------- server & database set-up ------------------------------ //
 
@@ -31,7 +31,7 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname + "/views"));
 
 app.use(express.static("public"));
-
+console.log(process.env.DB_CONN);
 mongoose.connect(
   process.env.DB_CONN,
   function (error) {
