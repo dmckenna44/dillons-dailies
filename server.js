@@ -8,6 +8,7 @@ const path = require("path");
 const nodemailer = require("nodemailer");
 const multiparty = require("multiparty");
 require('dotenv').config();
+const cors =  require('cors');
 const app = express();
 
 
@@ -30,8 +31,11 @@ const getDate = function () {
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname + "/views"));
 
+app.use(cors({
+  origin: 'http://localhost:3000'
+}));
 app.use(express.static("public"));
-console.log(process.env.DB_CONN);
+
 mongoose.connect(
   process.env.DB_CONN,
   function (error) {
@@ -116,7 +120,7 @@ app.get("/quote", async function (req, res) {
 app.get("/poem", function (req, res) {
   Poem.find(
     {
-      date: "10/22/2022",
+      date: getDate(),
     },
     (err, poem) => {
       if (err) {
@@ -238,6 +242,55 @@ app.post("/contact", function (req, res) {
     });
   });
 });
+
+// app.get("/soccer", function (req, res) {
+//   Highlight.find({ date: getDate() }, (err, video) => {
+//     if (!err) {
+//       res.render("soccer", {
+//         dailyTitle: "Your Daily Soccer Match",
+//         dailySubTitle:
+//           "In a far away place, not too long ago, this happened...",
+//         video: video[0].video,
+//       });
+//     }
+//   });
+// });
+
+app.get("/archive/:date", cors(), function(req, res) {
+  const date = req.params.date;
+  const queryDate = date.replaceAll('-', '/');
+  console.log(queryDate);
+  const fullResponse = {};
+
+  Joke.findOne({date: queryDate}, (err, joke) => {
+    err ? console.log(err) : fullResponse.joke = joke;
+  })
+  Highlight.findOne({date: queryDate}, (err, highlight) => {
+    err ? console.log(err) : fullResponse.highlight = highlight;
+  })
+  Saying.findOne({date: queryDate}, (err, quote) => {
+    err ? console.log(err) : fullResponse.quote = quote;
+  })
+  Recipe.findOne({date: queryDate}, (err, recipe) => {
+    err ? console.log(err) : fullResponse.recipe = recipe;
+  })
+  Poem.findOne({date: queryDate}, (err, poem) => {
+    err ? console.log(err) : fullResponse.poem = poem;
+  })
+
+  setTimeout(() => {
+    console.log(fullResponse);
+    res.send(fullResponse);
+  }, 1000)
+
+})
+
+app.get("/archive", function(req, res) {
+  res.render("archive");
+  function findEntries() {
+    return;
+  }
+})
 
 app.get("/extras", function (req, res) {
   res.render("extras");

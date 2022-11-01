@@ -191,7 +191,7 @@ const newHighlight = () => {
 
 
 function getDailyData() {
-  // newPoem();
+  newPoem();
   newRecipe();
   newSaying();
   newJoke();
