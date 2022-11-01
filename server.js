@@ -256,34 +256,33 @@ app.post("/contact", function (req, res) {
 //   });
 // });
 
-app.get("/archive/:date", cors(), function(req, res) {
-  const date = req.params.date;
-  const queryDate = date.replaceAll('-', '/');
-  console.log(queryDate);
-  const fullResponse = {};
+// app.get("/archive/:date", cors(), function(req, res) {
+//   const date = req.params.date;
+//   const queryDate = date.replaceAll('-', '/');
+//   console.log(queryDate);
+//   const fullResponse = {};
 
-  Joke.findOne({date: queryDate}, (err, joke) => {
-    err ? console.log(err) : fullResponse.joke = joke;
-  })
-  Highlight.findOne({date: queryDate}, (err, highlight) => {
-    err ? console.log(err) : fullResponse.highlight = highlight;
-  })
-  Saying.findOne({date: queryDate}, (err, quote) => {
-    err ? console.log(err) : fullResponse.quote = quote;
-  })
-  Recipe.findOne({date: queryDate}, (err, recipe) => {
-    err ? console.log(err) : fullResponse.recipe = recipe;
-  })
-  Poem.findOne({date: queryDate}, (err, poem) => {
-    err ? console.log(err) : fullResponse.poem = poem;
-  })
+//   Joke.findOne({date: queryDate}, (err, joke) => {
+//     err ? console.log(err) : fullResponse.joke = joke;
+//   })
+//   Highlight.findOne({date: queryDate}, (err, highlight) => {
+//     err ? console.log(err) : fullResponse.highlight = highlight;
+//   })
+//   Saying.findOne({date: queryDate}, (err, quote) => {
+//     err ? console.log(err) : fullResponse.quote = quote;
+//   })
+//   Recipe.findOne({date: queryDate}, (err, recipe) => {
+//     err ? console.log(err) : fullResponse.recipe = recipe;
+//   })
+//   Poem.findOne({date: queryDate}, (err, poem) => {
+//     err ? console.log(err) : fullResponse.poem = poem;
+//   })
 
-  setTimeout(() => {
-    console.log(fullResponse);
-    res.send(fullResponse);
-  }, 1000)
-
-})
+//   setTimeout(() => {
+//     console.log(fullResponse);
+//     res.send(fullResponse);
+//   }, 1000)
+// })
 
 app.get("/archive", function(req, res) {
   res.render("archive");
