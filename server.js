@@ -31,9 +31,9 @@ const getDate = function () {
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname + "/views"));
 
-app.use(cors({
-  origin: 'http://localhost:3000'
-}));
+// app.use(cors({
+//   origin: 'http://localhost:3000'
+// }));
 app.use(express.static("public"));
 
 mongoose.connect(
