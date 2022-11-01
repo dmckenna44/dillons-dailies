@@ -8,7 +8,7 @@ const path = require("path");
 const nodemailer = require("nodemailer");
 const multiparty = require("multiparty");
 require('dotenv').config();
-const cors =  require('cors');
+// const cors =  require('cors');
 const app = express();
 
 
