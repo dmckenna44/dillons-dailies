@@ -27,7 +27,7 @@ const getDate = function () {
 // console.log(getDate());
 
 // ---------------- server & database set-up ------------------------------ //
-
+let test2;
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname + "/views"));
 
