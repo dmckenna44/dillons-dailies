@@ -756,7 +756,7 @@ const allWeapons = [
 const primEnchObjs = [
   {
     name: 'of Smoke',
-    desc: "On command weapon can emit a smoky haze that can obsucre vision as in fog spell for 5' radius",
+    desc: "On command weapon can emit a smoky haze that can obscure vision as in fog spell for 5' radius",
     type: 'all',
   },
   {

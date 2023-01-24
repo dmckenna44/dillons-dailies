@@ -177,14 +177,19 @@ const newHighlight = () => {
           newList.push(item);
         }
       });
-      const randomChoice = newList[Math.floor(Math.random() * newList.length) - 1];
-      const newVideo = String(randomChoice.videos[0].embed);
-      const highlight = new Highlight({
-        video: newVideo,
-        date: getDate(),
-      });
-      highlight.save();
-      console.log('New highlight added');
+      console.log(newList);
+      if(newList.length) {
+        const randomChoice = newList[Math.floor(Math.random() * newList.length) - 1];
+        console.log(randomChoice);
+        const newVideo = String(randomChoice.videos[0].embed);
+        const highlight = new Highlight({
+          video: newVideo,
+          date: getDate(),
+        });
+        console.log(highlight);
+        highlight.save();
+        console.log('New highlight added');
+      }
     })
     .catch(err => console.log(err, err.message))
 };

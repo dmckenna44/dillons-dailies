@@ -1,12 +1,38 @@
 body {
   background-color: #CCF6C8;
-}
-.main-item {
-  align-items: center;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
-ul {
-  /* list-style-position: inside; */
+.archive-list {
+  list-style-type: none;
+  /* margin: 2rem 0 2rem 0; */
+  line-height: 2;
+  font-size: 1.5em;
+}
+
+li:hover {
+  color: blue;
+  cursor: pointer;
+}
+
+#return-to-results:hover {
+  color: blue;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+
+.hidden {
+  display: none;
+  opacity: 0;
+}
+
+.main-item {
+  align-items: center;
 }
 
 .nav-title {
@@ -19,13 +45,13 @@ ul {
   font-family: 'EB Garamond', serif;
 }
 
-.page-title {
+/* .page-title {
   font-family: 'Josefin Sans', sans-serif;
 }
 
 .page-subtitle {
   font-family: 'Josefin Sans', sans-serif;
-}
+} */
 
 .main-link {
   text-decoration: none;
@@ -55,4 +81,32 @@ footer {
 
 img {
   border-radius: 25px;
+}
+
+#archives {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  align-items: flex-start;
+}
+
+#archive-search-bar {
+  border-radius: 5px;
+}
+
+.search-btn {
+  background-color: #FAFCC2;
+  box-shadow: 0 0 2px black;
+  height: 2.2rem;
+}
+
+.search-btn:hover {
+  box-shadow: none;
+  background-color: #222;
+  /* box-shadow: 0 0 15px rgb(226, 204, 9); */
+  color: #FAFCC2;
+}
+
+.poem-container {
+  text-align: left;
 }
